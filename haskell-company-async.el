@@ -30,7 +30,7 @@
         (save-match-data
           (cl-destructuring-bind (ident-start . ident-end) (haskell-ident-pos-at-point)
             (or (-when-let* ((is-import (save-excursion (goto-char ident-start)
-                                                       (looking-back "import \\(?:qualified\\)?" (line-beginning-position))))
+                                                       (looking-back "import +\\(?:qualified +\\)?" (line-beginning-position))))
                             (import-start (match-beginning 0)))
                  (buffer-substring-no-properties import-start ident-end))
                (buffer-substring-no-properties ident-start ident-end))))))
